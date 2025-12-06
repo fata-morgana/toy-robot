@@ -9,8 +9,6 @@ import java.io.PrintStream;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
-import org.junit.jupiter.api.AfterEach;
-import org.junit.jupiter.api.BeforeEach;
 
 import dev.fatamorgana.toyrobot.model.BasicRobot;
 import dev.fatamorgana.toyrobot.model.BasicTableTop;

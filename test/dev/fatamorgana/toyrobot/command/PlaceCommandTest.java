@@ -5,11 +5,9 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
 
 import org.junit.Test;
 
-import dev.fatamorgana.toyrobot.StandardToyRobot;
 import dev.fatamorgana.toyrobot.model.BasicRobot;
 import dev.fatamorgana.toyrobot.model.BasicTableTop;
 import dev.fatamorgana.toyrobot.model.Direction;
-import dev.fatamorgana.toyrobot.model.Robot;
 import dev.fatamorgana.toyrobot.model.TableTop;
 
 public class PlaceCommandTest {
