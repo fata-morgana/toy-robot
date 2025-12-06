@@ -50,7 +50,7 @@ public class MoveCommandTest {
 	public void testInvalidMoveNorth() throws IOException {
 		BasicRobot robot1 = new BasicRobot(1, 2, Direction.NORTH);
 		moveCommand.execute(robot1, tableTop);
-		assertEquals("Move command failed. Can't move out of bound.\n", outContent.toString());
+		assertEquals("[DEBUG] Move command failed. Can't move out of bound.\n", outContent.toString());
 		
 	}
 	
@@ -58,21 +58,21 @@ public class MoveCommandTest {
 	public void testInvalidMoveEast() throws IOException {
 		BasicRobot robot2 = new BasicRobot(2, 1, Direction.EAST);
 		moveCommand.execute(robot2, tableTop);
-		assertEquals("Move command failed. Can't move out of bound.\n", outContent.toString());
+		assertEquals("[DEBUG] Move command failed. Can't move out of bound.\n", outContent.toString());
 	}
 	
 	@Test
 	public void testInvalidMoveSouth() throws IOException {		
 		BasicRobot robot3 = new BasicRobot(1, 0, Direction.SOUTH);
 		moveCommand.execute(robot3, tableTop);
-		assertEquals("Move command failed. Can't move out of bound.\n", outContent.toString());
+		assertEquals("[DEBUG] Move command failed. Can't move out of bound.\n", outContent.toString());
 	}
 	
 	@Test
 	public void testInvalidMoveWest() throws IOException {
 		BasicRobot robot4 = new BasicRobot(0, 1, Direction.WEST);
 		moveCommand.execute(robot4, tableTop);
-		assertEquals("Move command failed. Can't move out of bound.\n", outContent.toString());
+		assertEquals("[DEBUG] Move command failed. Can't move out of bound.\n", outContent.toString());
 	}
 
 

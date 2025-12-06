@@ -20,7 +20,7 @@ public class NullCommandTest {
 		System.setOut(new PrintStream(outContent));
 		
 		command.execute(Mockito.mock(BasicRobot.class), Mockito.mock(TableTop.class));
-		assertEquals("Doing nothing. Unsupported operation.\n", outContent.toString());
+		assertEquals("[DEBUG] Doing nothing. Unsupported operation.\n", outContent.toString());
 		
 		System.setOut(originalOut);
 	}
