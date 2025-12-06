@@ -12,9 +12,9 @@ public class BasicTableTopTest {
 	@Test
 	public void testCreateWithDefaultDimention() {
 		BasicTableTop tableTop = BasicTableTop.createDefault();
-		assertEquals(0, tableTop.getLowerMost());
+		assertEquals(0, tableTop.getBottomost());
 		assertEquals(0, tableTop.getLeftMost());
-		assertEquals(4, tableTop.getUpperMost());
+		assertEquals(4, tableTop.getTopMost());
 		assertEquals(4, tableTop.getRightMost());
 	}
 
@@ -35,9 +35,9 @@ public class BasicTableTopTest {
 	@Test
 	public void testCreateWithCustomDimention() {
 		BasicTableTop tableTop = BasicTableTop.createWithDimension(1, 2);
-		assertEquals(0, tableTop.getLowerMost());
+		assertEquals(0, tableTop.getBottomost());
 		assertEquals(0, tableTop.getLeftMost());
-		assertEquals(0, tableTop.getUpperMost());
+		assertEquals(0, tableTop.getTopMost());
 		assertEquals(1, tableTop.getRightMost());
 	}
 	

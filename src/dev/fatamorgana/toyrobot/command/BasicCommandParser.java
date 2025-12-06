@@ -2,8 +2,10 @@ package dev.fatamorgana.toyrobot.command;
 
 import dev.fatamorgana.toyrobot.model.Direction;
 
-public class BasicCommandParser {
-	public InitializeCommand parseInit(String input) {
+public class BasicCommandParser implements CommandParser {
+	
+	@Override
+	public InitializeCommand parseInitCommand(String input) {
 		if (input == null) {
 			throw new IllegalArgumentException("Input is null.");
 		}
@@ -15,18 +17,19 @@ public class BasicCommandParser {
 			throw new IllegalArgumentException("Unsupported command:" + input);
 		String[] args = token[1].split(",");
 		if (args.length !=3) {
-			throw new IllegalArgumentException("Unsupported PLACE arguments:" + input);
+			throw new IllegalArgumentException("Unsupported PLACE arguments:" + String.join(",", args));
 		}
 		try {
-			int positionX = Integer.parseInt(args[0]);
-			int positionY = Integer.parseInt(args[1]);
-			Direction direction = Direction.valueOf(args[2].toUpperCase());
+			int positionX = Integer.parseInt(args[0].trim());
+			int positionY = Integer.parseInt(args[1].trim());
+			Direction direction = Direction.valueOf(args[2].trim().toUpperCase());
 			return new PlaceCommand(positionX, positionY, direction);
 		} catch(Exception e) {
-			throw new IllegalArgumentException("Unsupported PLACE arguments:" + input);
+			throw new IllegalArgumentException("Unsupported PLACE arguments:" + String.join(",", args));
 		}
 	}
 	
+	@Override
 	public GenericCommand parseGenericCommand(String input) {
 		if (input == null) {
 			throw new IllegalArgumentException("Input is null.");

@@ -4,40 +4,44 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import org.junit.Test;
 
-public class RobotTest {
+public class BasicRobotTest {
 	private static final int INIT_X_POS = 1;
 	private static final int INIT_Y_POS = 1;
 
 	@Test
+	public void testMove() {
+		testMoveOnNorth();
+		testMoveOnEast();
+		testMoveOnSouth();
+		testMoveOnWest();
+	}
+	
 	public void testMoveOnNorth() {
-		Robot testRobot = createTestingRobot(Direction.NORTH);
+		BasicRobot testRobot = createTestingRobot(Direction.NORTH);
 		testRobot.move();
 		assertEquals(1, testRobot.getPositionX());
 		assertEquals(2, testRobot.getPositionY());
 		assertEquals(Direction.NORTH, testRobot.getDirection());
 	}
 
-	@Test
 	public void testMoveOnEast() {
-		Robot testRobot = createTestingRobot(Direction.EAST);
+		BasicRobot testRobot = createTestingRobot(Direction.EAST);
 		testRobot.move();
 		assertEquals(2, testRobot.getPositionX());
 		assertEquals(1, testRobot.getPositionY());
 		assertEquals(Direction.EAST, testRobot.getDirection());
 	}
 
-	@Test
 	public void testMoveOnSouth() {
-		Robot testRobot = createTestingRobot(Direction.SOUTH);
+		BasicRobot testRobot = createTestingRobot(Direction.SOUTH);
 		testRobot.move();
 		assertEquals(1, testRobot.getPositionX());
 		assertEquals(0, testRobot.getPositionY());
 		assertEquals(Direction.SOUTH, testRobot.getDirection());
 	}
 
-	@Test
 	public void testMoveOnWest() {
-		Robot testRobot = createTestingRobot(Direction.WEST);
+		BasicRobot testRobot = createTestingRobot(Direction.WEST);
 		testRobot.move();
 		assertEquals(0, testRobot.getPositionX());
 		assertEquals(1, testRobot.getPositionY());
@@ -46,7 +50,7 @@ public class RobotTest {
 	
 	@Test
 	public void testTurnLeft() {
-		Robot testRobot = createTestingRobot(Direction.NORTH);
+		BasicRobot testRobot = createTestingRobot(Direction.NORTH);
 		testRobot.turnLeft();
 		assertEquals(Direction.WEST, testRobot.getDirection());
 		testRobot.turnLeft();
@@ -59,7 +63,7 @@ public class RobotTest {
 	
 	@Test
 	public void testTurnRight() {
-		Robot testRobot = createTestingRobot(Direction.NORTH);
+		BasicRobot testRobot = createTestingRobot(Direction.NORTH);
 		testRobot.turnRight();
 		assertEquals(Direction.EAST, testRobot.getDirection());
 		testRobot.turnRight();
@@ -70,7 +74,13 @@ public class RobotTest {
 		assertEquals(Direction.NORTH, testRobot.getDirection());
 	}
 	
-	Robot createTestingRobot(Direction direction) {
-		return new Robot(INIT_X_POS, INIT_Y_POS, direction);
+	@Test
+	public void testReport() {
+		BasicRobot testRobot = createTestingRobot(Direction.NORTH);
+		assertEquals("1,1,NORTH", testRobot.report());
+	}
+	
+	private BasicRobot createTestingRobot(Direction direction) {
+		return new BasicRobot(INIT_X_POS, INIT_Y_POS, direction);
 	}
 }

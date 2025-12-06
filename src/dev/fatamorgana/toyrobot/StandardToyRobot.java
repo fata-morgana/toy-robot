@@ -1,19 +1,18 @@
 package dev.fatamorgana.toyrobot;
 
-import dev.fatamorgana.toyrobot.model.Robot;
+import dev.fatamorgana.toyrobot.model.BasicRobot;
 import dev.fatamorgana.toyrobot.model.TableTop;
 
 public class StandardToyRobot {
-	private Robot robot;
-	private TableTop tableTop;
+	private final BasicRobot robot;
+	private final TableTop tableTop;
 	
-	public StandardToyRobot(Robot robot, TableTop tableTop) {
-		super();
+	public StandardToyRobot(BasicRobot robot, TableTop tableTop) {
 		this.robot = robot;
 		this.tableTop = tableTop;
 	}
 	
-	public Robot getRobot() {
+	public BasicRobot getRobot() {
 		return robot;
 	}
 	public TableTop getTableTop() {

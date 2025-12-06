@@ -1,13 +1,13 @@
 package dev.fatamorgana.toyrobot.model;
 
-public class BasicTableTop implements TableTop{
+public class BasicTableTop implements TableTop {
 	public static final int DEFAULT_LEFT = 0;
 	public static final int DEFAULT_BOTTOM = 0;
 	public static final int DEFAULT_RIGHT = 4;
 	public static final int DEFAULT_TOP = 4;
-	private final int upperMost;
+	private final int topMost;
 	private final int rightMost;
-	private final int lowerMost;
+	private final int bottomMost;
 	private final int leftMost;
 	
 	public static BasicTableTop createDefault() {
@@ -27,30 +27,30 @@ public class BasicTableTop implements TableTop{
 	
 	private BasicTableTop() {
 		// default dimension
-		upperMost = DEFAULT_TOP;
+		topMost = DEFAULT_TOP;
 		rightMost = DEFAULT_RIGHT;
-		lowerMost = DEFAULT_LEFT;
+		bottomMost = DEFAULT_LEFT;
 		leftMost = DEFAULT_BOTTOM;
 	}
 	
 	private BasicTableTop(int upperMost, int rightMost) {
 		// custom dimension
-		this.upperMost = upperMost;
+		this.topMost = upperMost;
 		this.rightMost = rightMost;
-		lowerMost = 0;
+		bottomMost = 0;
 		leftMost = 0;
 	}
 
-	public int getUpperMost() {
-		return upperMost;
+	public int getTopMost() {
+		return topMost;
 	}
 
 	public int getRightMost() {
 		return rightMost;
 	}
 
-	public int getLowerMost() {
-		return lowerMost;
+	public int getBottomost() {
+		return bottomMost;
 	}
 
 	public int getLeftMost() {
@@ -59,6 +59,6 @@ public class BasicTableTop implements TableTop{
 	
 	@Override
 	public boolean isValidPosition(int x, int y) {
-		return x >= leftMost && x <= rightMost && y >= lowerMost && y <= upperMost;
+		return x >= leftMost && x <= rightMost && y >= bottomMost && y <= topMost;
 	}
 }
